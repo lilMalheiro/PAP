@@ -28,9 +28,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-public class Segundo implements Initializable {
+public class Playlist implements Initializable {
 
-//declaração de eventos e butões
+    //declaração de eventos e butões
     @FXML
     private Button nextbtn, pausebtn, playbtn, previousbtn, restartbtn;
 
@@ -68,23 +68,24 @@ public class Segundo implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-              songs = new ArrayList<File>();
-                directory = new File("../music");
-                files = directory.listFiles();
-                if (files != null) {
-                    for (File file : files) {
-                        songs.add(file);
+        songs = new ArrayList<File>();
+        directory = new File("../music");
+        files = directory.listFiles();
+        if (files != null) {
+            for (File file : files) {
+                songs.add(file);
 
-                    }
-                }
-               // media = new Media(songs.get(songNumber).toURI().toString());
-               // mediaplayer = new MediaPlayer(media);
-               // songLable.setText(songs.get(songNumber).getName());
-
-
-
-
+            }
         }
+        //media = new Media(songs.get(songNumber).toURI().toString());
+        //mediaplayer = new MediaPlayer(media);
+
+        //songLable.setText(songs.get(songNumber).getName());
+
+
+
+
+    }
 
 
 
@@ -136,9 +137,9 @@ public class Segundo implements Initializable {
 
             }
         }
-         catch(IOException a){
-                a.printStackTrace();
-            }
+        catch(IOException a){
+            a.printStackTrace();
+        }
     }
 
     @FXML
@@ -153,7 +154,7 @@ public class Segundo implements Initializable {
     }
 
     @FXML
-    void search(ActionEvent event ) throws IOException {
+    void search(ActionEvent event) throws IOException {
         root = FXMLLoader.load(getClass().getResource("/view/SearchView.fxml"));
         stage= (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -188,5 +189,5 @@ public class Segundo implements Initializable {
     }
 
 
-    }
+}
 

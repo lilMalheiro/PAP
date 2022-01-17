@@ -68,13 +68,13 @@ public class Controller {
 
     public void join(javafx.event.ActionEvent actionEvent) throws IOException {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("view/Segundo"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Segundo.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.initModality(Modality.WINDOW_MODAL);
             stage.setScene(scene);
-            stage.showAndWait();
+            stage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -17,17 +17,14 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage ) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("../view/Segundo.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../view/sample.fxml"));
         primaryStage.setTitle("MaxMusic");
         primaryStage.setScene(new Scene(root, 300, 275));
         Image image = new Image("/img/iconic2.png");
         primaryStage.getIcons().add(image);
         primaryStage.show();
 
-    }
-
-    public void start2(Stage stage) throws IOException {
-        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 
             @Override
             public void handle(WindowEvent arg0) {
@@ -36,7 +33,10 @@ public class Main extends Application {
                 System.exit(0);
             }
         });
+
     }
+
+
 
     public static void main(String[] args) {
         launch(args);
