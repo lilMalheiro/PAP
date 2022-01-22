@@ -78,10 +78,10 @@ public class Search implements Initializable {
 
             }
         }
-        media = new Media(songs.get(songNumber).toURI().toString());
-        mediaplayer = new MediaPlayer(media);
+        //media = new Media(songs.get(songNumber).toURI().toString());
+        //mediaplayer = new MediaPlayer(media);
 
-        songLable.setText(songs.get(songNumber).getName());
+        //songLable.setText(songs.get(songNumber).getName());
 
 
 

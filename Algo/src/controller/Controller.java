@@ -1,12 +1,14 @@
 package controller;
 
+
+import Model.MySQLConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -15,14 +17,23 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.image.ImageView;
 
 
-import javax.swing.*;
-import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+
+
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.scene.control.TextField;
 
-public class Controller {
+public class Controller implements Initializable {
+
+    @FXML
+    public Label loginlabel;
+
     @FXML
     private TextField User;
 
@@ -42,16 +53,29 @@ public class Controller {
     @FXML
     private PasswordField Userpassword;
 
+
+
     @FXML
     private ImageView icon;
 
-
+    public
+    MySQLConnection connection;
 
 
 
     private Stage stage;
     private Scene scene;
     private Parent root;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        connection = new MySQLConnection();
+
+
+    }
+
+
+
 
     @FXML
     public void UserRegister(javafx.event.ActionEvent register) throws Exception {
@@ -67,17 +91,25 @@ public class Controller {
     }
 
     public void join(javafx.event.ActionEvent actionEvent) throws IOException {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Segundo.fxml"));
-            Parent root = loader.load();
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+       if(User.getText().isBlank() == false&& Userpassword.getText().isBlank() ==false ) {
+           try {
+               FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Segundo.fxml"));
+               Parent root = loader.load();
+               Scene scene = new Scene(root);
+               Stage stage = new Stage();
+               stage.initModality(Modality.WINDOW_MODAL);
+               stage.setScene(scene);
+               stage.show();
+           } catch (IOException e) {
+               e.printStackTrace();
+           }
+       }
+           else{
+           loginlabel.setText("Mete um login ai rapa !");
+
+       }
+
     }
 
 
@@ -87,6 +119,7 @@ public class Controller {
     }
 
     public void UserName(javafx.event.ActionEvent actionEvent) {
+
     }
 
 
@@ -94,5 +127,32 @@ public class Controller {
     void Userpassword(javafx.event.ActionEvent password) {
 
     }
+   public void Validardata()
+    {
+        MySQLConnection connectNow = new MySQLConnection();
+        Connection connectDB = connectNow.connection;
+        String verificarlogin = "SELECT UserName FROM users; '"  + User.getText() + "'SELECT Password FROM users;'"+ Userpassword.getText() + "'";
+        try{
+            Statement statement=connectDB.createStatement();
+            ResultSet queryResult=statement.executeQuery(verificarlogin);
+
+            while (queryResult.next()) {
+                if(queryResult.getInt(1)==1){
+                    loginlabel.setText("Parabens!");
+
+                }else{
+                    loginlabel.setText("Es noob tenta de novo!");
+
+                }
+
+            }
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
+    }
+
 
 }

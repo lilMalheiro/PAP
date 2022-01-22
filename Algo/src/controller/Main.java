@@ -17,9 +17,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage ) throws Exception{
+
         Parent root = FXMLLoader.load(getClass().getResource("../view/sample.fxml"));
         primaryStage.setTitle("MaxMusic");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root));
         Image image = new Image("/img/iconic2.png");
         primaryStage.getIcons().add(image);
         primaryStage.show();
@@ -39,6 +40,7 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+
         launch(args);
     }
 }
