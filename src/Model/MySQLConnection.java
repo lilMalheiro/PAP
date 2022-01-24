@@ -6,14 +6,14 @@ import java.util.Properties;
 
 public class MySQLConnection {
 
-    private Properties p;
-    private Connection connection;
+    public Properties p;
+    public Connection connection;
 
     public MySQLConnection() {
         setConnection();
     }
 
-    private void setConnection() {
+   public Connection setConnection() {
         p = new Properties();
         try{
             InputStream input = new FileInputStream("mydbconnection.properties");
@@ -25,7 +25,7 @@ public class MySQLConnection {
             e.printStackTrace();
             System.out.println("ocorreu um problema...");
         }
-
+        return connection;
     }
 
 
@@ -39,7 +39,6 @@ public class MySQLConnection {
         }
         return null;
     }
-
 
 
 

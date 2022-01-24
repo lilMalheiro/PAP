@@ -17,10 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.Slider;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -32,7 +29,7 @@ public class Playlist implements Initializable {
 
     //declaração de eventos e butões
     @FXML
-    private Button nextbtn, pausebtn, playbtn, previousbtn, restartbtn;
+    private Button nextbtn, pausebtn, playbtn, previousbtn, restartbtn, Selectbtn;
 
     @FXML
     private Button homebtn, playlistbtn, searchbtn;
@@ -45,6 +42,20 @@ public class Playlist implements Initializable {
 
     @FXML
     private Label songLable;
+
+    @FXML
+    private TableView<?> playlisttbl;
+
+    @FXML
+    private TableColumn<?, ?> playlistName;
+
+    @FXML
+    private TableColumn<?, ?> musicexemples;
+
+
+    @FXML
+    private TextField playlistSearchtxt;
+
 
     public Media media;
     public MediaPlayer mediaplayer;
@@ -185,6 +196,21 @@ public class Playlist implements Initializable {
     public void cancelTimer() {
 
         running = false;
+
+    }
+
+    @FXML
+    void Playlists(ActionEvent event) {
+
+    }
+
+    @FXML
+    void playlistSearch(ActionEvent event) {
+
+    }
+
+    @FXML
+    void Select(ActionEvent event) {
 
     }
 

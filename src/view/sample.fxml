@@ -7,48 +7,90 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
    <children>
-      <Button fx:id="btnlogin" layoutX="260.0" layoutY="423.0" mnemonicParsing="false" onAction="#join" prefHeight="51.0" prefWidth="136.0" text="Login">
-         <font>
-            <Font size="28.0" />
-         </font>
-      </Button>
-
-      <Button fx:id="btnSair" layoutX="23.0" layoutY="483.0" mnemonicParsing="false" onAction="#sair" text="Sair" />
-      <Button fx:id="btnregister" layoutX="254.0" layoutY="338.0" mnemonicParsing="false" onAction="#UserRegister" prefHeight="66.0" prefWidth="149.0" text="Register">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Button>
-      <TextField fx:id="User" layoutX="145.0" layoutY="195.0" onAction="#UserName" prefHeight="41.0" prefWidth="365.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </TextField>
-      <Text layoutX="50.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User " wrappingWidth="94.13671875">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Text>
-      <PasswordField fx:id="Userpassword" layoutX="145.0" layoutY="248.0" onAction="#Userpassword" prefHeight="41.0" prefWidth="365.0" />
-      <Text layoutX="14.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Text>
-      <ImageView fx:id="icon" fitHeight="185.0" fitWidth="184.0" layoutX="254.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../out/production/Algo/img/icon.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="loginlabel" layoutX="135.0" layoutY="306.0" prefHeight="25.0" prefWidth="387.0" text="    ">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
+      <Pane layoutX="-3.0" layoutY="173.0" prefHeight="368.0" prefWidth="648.0" style="-fx-background-color: #F31717;">
+         <children>
+            <Button fx:id="btnlogin" layoutX="272.0" layoutY="235.0" mnemonicParsing="false" onAction="#join" prefHeight="51.0" prefWidth="136.0" style="-fx-background-color: #F31717; -fx-border-color: BLACK;" text="Login">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnregister" layoutX="265.0" layoutY="158.0" mnemonicParsing="false" onAction="#UserRegister" prefHeight="66.0" prefWidth="149.0" style="-fx-background-color: #F31717; -fx-border-color: black;" text="Register">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Button>
+            <Label fx:id="loginlabel" layoutX="157.0" layoutY="124.0" prefHeight="25.0" prefWidth="387.0" text="    ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="Userpassword" layoutX="157.0" layoutY="83.0" onAction="#Userpassword" prefHeight="41.0" prefWidth="365.0" style="-fx-background-color: #F31717; -fx-border-color: black;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </PasswordField>
+            <Text layoutX="26.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Text>
+      
+            <Button fx:id="btnSair" layoutX="26.0" layoutY="323.0" mnemonicParsing="false" onAction="#sair" style="-fx-background-color: #F31717; -fx-border-color: black;" text="Sair" />
+            <TextField fx:id="User" layoutX="157.0" layoutY="29.0" onAction="#UserName" prefHeight="41.0" prefWidth="365.0" style="-fx-background-color: #F31717; -fx-border-color: black;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <Text layoutX="35.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User " wrappingWidth="94.13671875">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane prefHeight="177.0" prefWidth="820.0" style="-fx-background-color: #808080;">
+         <children>
+            <ImageView fitHeight="167.0" fitWidth="188.0" layoutX="249.0" layoutY="6.0">
+               <image>
+                  <Image url="@../img/iconic2.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="695.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="M" wrappingWidth="67.13671875">
+               <font>
+                  <Font size="75.0" />
+               </font>
+            </Text>
+            <Text layoutX="701.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="U" wrappingWidth="55.13671875">
+               <font>
+                  <Font size="75.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane layoutX="645.0" layoutY="173.0" prefHeight="368.0" prefWidth="175.0" style="-fx-background-color: #808080;">
+         <children>
+            <Text layoutX="64.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="S" wrappingWidth="46.13671875">
+               <font>
+                  <Font size="75.0" />
+               </font>
+            </Text>
+            <Text layoutX="53.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="I" textAlignment="CENTER" wrappingWidth="67.13671875">
+               <font>
+                  <Font size="75.0" />
+               </font>
+            </Text>
+            <Text layoutX="54.0" layoutY="249.0" strokeType="OUTSIDE" strokeWidth="0.0" text="C" textAlignment="CENTER" wrappingWidth="67.13671875">
+               <font>
+                  <Font size="75.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

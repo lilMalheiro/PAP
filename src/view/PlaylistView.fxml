@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="695.0" prefWidth="1216.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Playlist">
     <children>
@@ -39,13 +40,28 @@
         </Pane>
         <Pane layoutX="268.0" prefHeight="518.0" prefWidth="952.0" style="-fx-background-color: #808080;">
          <children>
-            <TableView layoutX="128.0" layoutY="101.0" prefHeight="382.0" prefWidth="693.0">
+            <TableView fx:id="playlisttbl" layoutX="21.0" layoutY="115.0" onSort="#Playlists" prefHeight="382.0" prefWidth="693.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="playlistName" prefWidth="128.0" text="Nome" />
+                <TableColumn fx:id="musicexemples" prefWidth="564.0" text="Musicas" />
               </columns>
             </TableView>
-            <TextField layoutX="46.0" layoutY="40.0" prefHeight="25.0" prefWidth="188.0" />
+            <TextField fx:id="playlistSearchtxt" layoutX="21.0" layoutY="73.0" onAction="#playlistSearch" prefHeight="25.0" prefWidth="188.0" />
+            <Text layoutX="248.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minhas Playlists">
+               <font>
+                  <Font size="67.0" />
+               </font>
+            </Text>
+            <Button fx:id="Selectbtn" layoutX="732.0" layoutY="453.0" mnemonicParsing="false" onAction="#Select" text="Selecionar">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Text layoutX="21.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Text>
          </children></Pane>
         <Pane layoutY="518.0" prefHeight="180.0" prefWidth="1220.0" style="-fx-background-color: #000000;">
             <children>

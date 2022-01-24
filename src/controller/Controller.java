@@ -17,6 +17,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.image.ImageView;
 
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -57,22 +58,18 @@ public class Controller implements Initializable {
     @FXML
     private ImageView icon;
 
-    private
+    public
     MySQLConnection connection;
 
 
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         connection = new MySQLConnection();
 
     }
-
-
 
 
     @FXML
@@ -89,26 +86,40 @@ public class Controller implements Initializable {
     }
 
     public void join(javafx.event.ActionEvent actionEvent) throws IOException {
-       if(User.getText().isBlank() == false&& Userpassword.getText().isBlank() ==false ) {
-           try {
-               FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Segundo.fxml"));
-               Parent root = loader.load();
-               Scene scene = new Scene(root);
-               Stage stage = new Stage();
-               stage.initModality(Modality.WINDOW_MODAL);
-               stage.setScene(scene);
-               stage.show();
-           } catch (IOException e) {
-               e.printStackTrace();
-           }
-       }
-           else{
-           loginlabel.setText("Mete um login ai rapa !");
 
-       }
+      if(User.getText().isBlank() == false&& Userpassword.getText().isBlank() ==false ) {
+              MySQLConnection connectNow = new MySQLConnection();
+              Connection connectDB = connectNow.setConnection();
+              String verificarlogin = "SELECT COUNT(1) FROM users WHERE UserName='" + User.getText() + "' AND Password = '" + Userpassword.getText() + "'";
+              try {
+                  Statement statement = connectDB.createStatement();
+                  ResultSet queryResult = statement.executeQuery(verificarlogin);
 
-    }
+                  while (queryResult.next()) {
+                      if (queryResult.getInt(1) == 1) {
+                          loginlabel.setText("Bem vindo "+User.getText());
 
+                          FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Segundo.fxml"));
+                          Parent root = loader.load();
+                          Scene scene = new Scene(root);
+                          Stage stage = new Stage();
+                          stage.initModality(Modality.WINDOW_MODAL);
+                          stage.setScene(scene);
+                          stage.show();
+
+                      } else {
+                          loginlabel.setText("Login Invalido!");
+
+                      }
+
+                  }
+
+              } catch (Exception e) {
+                  e.printStackTrace();
+                  e.getCause();
+              }
+          }
+      }
 
     public void sair(javafx.event.ActionEvent actionEvent) {
         Stage stage = (Stage) this.btnSair.getScene().getWindow();
@@ -124,14 +135,7 @@ public class Controller implements Initializable {
     void Userpassword(javafx.event.ActionEvent password) {
 
     }
-    public void Validardata()
-    {
-        MySQLConnection connectNow = new MySQLConnection();
-        String verificarogin = "SELECT UserName FROM users;"+ User.getText() + "SELECT Password FROM users;"+ Userpassword.getText();
-        try{
-            Statement statement= MySQLConnection.querySELECT();
-        }
-    }
+
 
 
 }
